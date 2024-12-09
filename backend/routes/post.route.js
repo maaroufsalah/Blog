@@ -4,14 +4,14 @@ import {
   getPost,
   createPost,
   deletePost,
-  uploadAuth,
+  // uploadAuth,
   featurePost,
 } from "../controllers/post.controller.js";
 import increaseVisit from "../middlewares/increaseVisit.js";
 
 const router = express.Router();
 
-router.get("/upload-auth", uploadAuth);
+// router.get("/upload-auth", uploadAuth);
 
 router.get("/", getPosts);
 router.get("/:slug", increaseVisit, getPost);

@@ -1,6 +1,6 @@
 import { useAuth, useUser } from "@clerk/clerk-react";
-import "react-quill-new/dist/quill.snow.css";
-import ReactQuill from "react-quill-new";
+import ReactQuill from 'react-quill-new';
+import 'react-quill-new/dist/quill.snow.css';
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useState } from "react";

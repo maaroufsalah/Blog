@@ -24,9 +24,9 @@ const SideMenu = () => {
 
   return (
     <div className="px-4 h-max sticky top-8">
-      <h1 className="mb-4 text-sm font-medium">Search</h1>
+      <h1 className="mb-4 text-sm font-medium">بحث</h1>
       <Search />
-      <h1 className="mt-8 mb-4 text-sm font-medium">Filter</h1>
+      <h1 className="mt-8 mb-4 text-sm font-medium">فلتر</h1>
       <div className="flex flex-col gap-2 text-sm">
         <label htmlFor="" className="flex items-center gap-2 cursor-pointer">
           <input
@@ -36,7 +36,7 @@ const SideMenu = () => {
             value="newest"
             className="appearance-none w-4 h-4 border-[1.5px] border-blue-800 cursor-pointer rounded-sm bg-white checked:bg-blue-800"
           />
-          Newest
+          الأحدث
         </label>
         <label htmlFor="" className="flex items-center gap-2 cursor-pointer">
           <input
@@ -46,7 +46,7 @@ const SideMenu = () => {
             value="popular"
             className="appearance-none w-4 h-4 border-[1.5px] border-blue-800 cursor-pointer rounded-sm bg-white checked:bg-blue-800"
           />
-          Most Popular
+          الأكثر شعبية
         </label>
         <label htmlFor="" className="flex items-center gap-2 cursor-pointer">
           <input
@@ -56,7 +56,7 @@ const SideMenu = () => {
             value="trending"
             className="appearance-none w-4 h-4 border-[1.5px] border-blue-800 cursor-pointer rounded-sm bg-white checked:bg-blue-800"
           />
-          Trending
+          الشائع
         </label>
         <label htmlFor="" className="flex items-center gap-2 cursor-pointer">
           <input
@@ -66,17 +66,17 @@ const SideMenu = () => {
             value="oldest"
             className="appearance-none w-4 h-4 border-[1.5px] border-blue-800 cursor-pointer rounded-sm bg-white checked:bg-blue-800"
           />
-          Oldest
+          الأقدم
         </label>
       </div>
-      <h1 className="mt-8 mb-4 text-sm font-medium">Categories</h1>
+      <h1 className="mt-8 mb-4 text-sm font-medium">فئات</h1>
       <div className="flex flex-col gap-2 text-sm">
-        <span className="underline cursor-pointer" onClick={()=>handleCategoryChange("general")}>All</span>
-        <span className="underline cursor-pointer" onClick={()=>handleCategoryChange("web-design")}>Web Design</span>
-        <span className="underline cursor-pointer" onClick={()=>handleCategoryChange("development")}>Development</span>
-        <span className="underline cursor-pointer" onClick={()=>handleCategoryChange("databases")}>Databases</span>
-        <span className="underline cursor-pointer" onClick={()=>handleCategoryChange("seo")}>Search Engines</span>
-        <span className="underline cursor-pointer" onClick={()=>handleCategoryChange("marketing")}>Marketing</span>
+        <span className="underline cursor-pointer" onClick={()=>handleCategoryChange("عامة")}>كل المنشورات</span>
+        <span className="underline cursor-pointer" onClick={()=>handleCategoryChange("رياضة")}>رياضة</span>
+        <span className="underline cursor-pointer" onClick={()=>handleCategoryChange("ثقافة")}>ثقافة</span>
+        <span className="underline cursor-pointer" onClick={()=>handleCategoryChange("اجتماع")}>اجتماع</span>
+        <span className="underline cursor-pointer" onClick={()=>handleCategoryChange("بيئة")}>بيئة</span>
+        <span className="underline cursor-pointer" onClick={()=>handleCategoryChange("فن")}>فن</span>
       </div>
     </div>
   );

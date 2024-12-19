@@ -9,10 +9,15 @@ export const getUserSavedPosts = async (req, res) => {
 
   const user = await User.findOne({ clerkUserId });
 
-  res.status(200).json(user.savedPosts);
+  if (!user) {
+    return res.status(404).json("User not found!: " + user + clerkUserId);
+  }
+
+  res.status(200).json(user.savedPosts || []);
 };
 
 export const savePost = async (req, res) => {
+  // console.log("req : " + req);
   const clerkUserId = req.auth.userId;
   const postId = req.body.postId;
 

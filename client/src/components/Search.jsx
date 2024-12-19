@@ -31,7 +31,7 @@ const Search = () => {
       </svg>
       <input
         type="text"
-        placeholder="search a post..."
+        placeholder="ابحث عن منشور..."
         className="bg-transparent"
         onKeyDown={handleKeyPress}
       />

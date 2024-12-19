@@ -3,6 +3,7 @@ import Comment from "./Comment";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAuth, useUser } from "@clerk/clerk-react";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 const fetchComments = async (postId) => {
   const res = await axios.get(
@@ -12,6 +13,7 @@ const fetchComments = async (postId) => {
 };
 
 const Comments = ({ postId }) => {
+  const [comment, setComment] = useState("");
   const { user } = useUser();
   const { getToken } = useAuth();
 
@@ -37,6 +39,8 @@ const Comments = ({ postId }) => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["comments", postId] });
+      toast.success("تم إضافة التعليق بنجاح");
+      setComment("");
     },
     onError: (error) => {
       toast.error(error.response.data);
@@ -56,30 +60,32 @@ const Comments = ({ postId }) => {
 
   return (
     <div className="flex flex-col gap-8 lg:w-3/5 mb-12">
-      <h1 className="text-xl text-gray-500 underline">Comments</h1>
+      <h1 className="text-xl text-gray-500 underline">تعليقات</h1>
       <form
         onSubmit={handleSubmit}
         className="flex items-center justify-between gap-8 w-full"
       >
         <textarea
           name="desc"
-          placeholder="Write a comment..."
+          placeholder="اكتب تعليق..."
           className="w-full p-4 rounded-xl"
+          value={comment} // Controlled component
+          onChange={(e) => setComment(e.target.value)}
         />
         <button className="bg-blue-800 px-4 py-3 text-white font-medium rounded-xl">
-          Send
+          إضافة
         </button>
       </form>
       {isPending ? (
-        "Loading..."
+        "جاري التحميل..."
       ) : error ? (
-        "Error loading comments!"
+        "مشكل في تحميل التعليقات!"
       ) : (
         <>
           {mutation.isPending && (
             <Comment
               comment={{
-                desc: `${mutation.variables.desc} (Sending...)`,
+                desc: `${mutation.variables.desc} (إضافة...)`,
                 createdAt: new Date(),
                 user: {
                   img: user.imageUrl,

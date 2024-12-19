@@ -24,6 +24,7 @@ const authenticator = async () => {
 };
 
 const Upload = ({ children, type, setProgress, setData }) => {
+
   const ref = useRef(null);
 
   const onError = (err) => {

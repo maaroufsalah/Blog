@@ -23,8 +23,6 @@ export const clerkWebHook = async (req, res) => {
     });
   }
 
-  // console.log(evt.data);
-
   if (evt.type === "user.created") {
     const newUser = new User({
       clerkUserId: evt.data.id,
@@ -41,8 +39,8 @@ export const clerkWebHook = async (req, res) => {
       clerkUserId: evt.data.id,
     });
 
-    await Post.deleteMany({user:deletedUser._id})
-    await Comment.deleteMany({user:deletedUser._id})
+    await Post.deleteMany({ user: deletedUser._id })
+    await Comment.deleteMany({ user: deletedUser._id })
   }
 
   return res.status(200).json({

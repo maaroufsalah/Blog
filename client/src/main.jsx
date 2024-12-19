@@ -13,6 +13,9 @@ import { ClerkProvider } from "@clerk/clerk-react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import '../utils/timeagoSetup.js';
+import About from "./routes/About.jsx";
+import Contact from "./routes/Contact.jsx";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +52,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <RegisterPage />,
+      },
+      {
+        path: "/About",
+        element: <About />,
+      },
+      {
+        path: "/Contact",
+        element: <Contact />,
       },
     ],
   },

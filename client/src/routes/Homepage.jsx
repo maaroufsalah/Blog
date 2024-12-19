@@ -7,25 +7,26 @@ const Homepage = () => {
   return (
     <div className="mt-4 flex flex-col gap-4">
       {/* BREADCRUMB */}
-      <div className="flex gap-4">
+      {/* <div className="flex gap-4">
         <Link to="/">Home</Link>
         <span>•</span>
         <span className="text-blue-800">Blogs and Articles</span>
-      </div>
+      </div> */}
       {/* INTRODUCTION */}
       <div className="flex items-center justify-between">
         {/* titles */}
-        <div className="">
-          <h1 className="text-gray-800 text-2xl md:text-5xl lg:text-6xl font-bold">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        {/* <div className="">
+          <h1 className="text-gray-800 text-2xl md:text-5xl lg:text-2xl">
+          مرحبا بكم في الموقع الرسمي لجمعية حي الزهور
           </h1>
           <p className="mt-8 text-md md:text-xl">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi
-            rerum accusantium.
+          جمعية حي الزهور هي جمعية تنموية تهدف إلى تعزيز الأنشطة الاجتماعية،
+           الثقافية، الفنية، الرياضية، والبيئية داخل الحي. تسعى الجمعية إلى نشر الوعي، دعم المواهب،
+            وتنظيم فعاليات ومبادرات تساهم في تطوير المجتمع المحلي وتحسين جودة الحياة.
           </p>
-        </div>
+        </div> */}
         {/* animated button */}
-        <Link to="write" className="hidden md:block relative">
+        {/* <Link to="write" className="hidden md:block relative">
           <svg
             viewBox="0 0 200 200"
             width="200"
@@ -61,7 +62,7 @@ const Homepage = () => {
               <polyline points="9 6 18 6 18 15" />
             </svg>
           </button>
-        </Link>
+        </Link> */}
       </div>
       {/* CATEGORIES */}
       <MainCategories />
@@ -69,7 +70,7 @@ const Homepage = () => {
       <FeaturedPosts />
       {/* POST LIST */}
       <div className="">
-        <h1 className="my-8 text-2xl text-gray-600">Recent Posts</h1>
+        <h1 className="my-8 text-2xl text-gray-600">آخر المنشورات</h1>
         <PostList/>
       </div>
     </div>

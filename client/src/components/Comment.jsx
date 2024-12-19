@@ -26,7 +26,7 @@ const Comment = ({ comment, postId }) => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["comments", postId] });
-      toast.success("Comment deleted successfully");
+      toast.success("تم حذف التعليق بنجاح");
     },
     onError: (error) => {
       toast.error(error.response.data);
@@ -36,16 +36,22 @@ const Comment = ({ comment, postId }) => {
   return (
     <div className="p-4 bg-slate-50 rounded-xl mb-8">
       <div className="flex items-center gap-4">
-        {comment.user.img && (
+        {comment.user.img ? (
           <Image
             src={comment.user.img}
             className="w-10 h-10 rounded-full object-cover"
             w="40"
           />
-        )}
+        ) :
+          <Image
+            src="user.png"
+            className="w-10 h-10 rounded-full object-cover"
+            w="40"
+          />
+        }
         <span className="font-medium">{comment.user.username}</span>
         <span className="text-sm text-gray-500">
-          {format(comment.createdAt)}
+          {format(comment.createdAt, 'ar')}
         </span>
         {user &&
           (comment.user.username === user.username || role === "admin") && (
@@ -53,8 +59,8 @@ const Comment = ({ comment, postId }) => {
               className="text-xs text-red-300 hover:text-red-500 cursor-pointer"
               onClick={() => mutation.mutate()}
             >
-              delete
-              {mutation.isPending && <span>(in progress)</span>}
+              حذف
+              {mutation.isPending && <span>(حذف في تَقَدم)</span>}
             </span>
           )}
       </div>

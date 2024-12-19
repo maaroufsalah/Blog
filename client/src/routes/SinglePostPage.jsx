@@ -20,12 +20,12 @@ const SinglePostPage = () => {
     queryFn: () => fetchPost(slug),
   });
 
-  if (isPending) return "loading...";
+  if (isPending) return "جاري التحميل...";
   if (error) return "Something went wrong!" + error.message;
-  if (!data) return "Post not found!";
+  if (!data) return "منشور غير متوفر، المرجو تحديث الصفحة!";
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 mt-10">
       {/* detail */}
       <div className="flex gap-8">
         <div className="lg:w-3/5 flex flex-col gap-8">
@@ -33,11 +33,11 @@ const SinglePostPage = () => {
             {data.title}
           </h1>
           <div className="flex items-center gap-2 text-gray-400 text-sm">
-            <span>Written by</span>
+            <span>كتبه</span>
             <Link className="text-blue-800">{data.user.username}</Link>
-            <span>on</span>
+            <span>في فئة</span>
             <Link className="text-blue-800">{data.category}</Link>
-            <span>{format(data.createdAt)}</span>
+            <span>{format(data.createdAt, 'ar')}</span>
           </div>
           <p className="text-gray-500 font-medium">{data.desc}</p>
         </div>
@@ -52,93 +52,16 @@ const SinglePostPage = () => {
         {/* text */}
         <div className="lg:text-lg flex flex-col gap-6 text-justify">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias neque
-            fugiat itaque quas esse sunt cupiditate possimus cumque asperiores,
-            dolorem, dolores eligendi amet perferendis illum repellat nam quam
-            facilis veritatis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Sint ipsa fuga nihil numquam, quam dicta quas
-            exercitationem aliquam maxime quaerat, enim autem culpa sequi at!
-            Earum facere in ducimus culpa. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Libero fuga modi amet error aliquid
-            eos nobis vero soluta facilis, voluptatem, voluptates quod suscipit
-            obcaecati voluptate quaerat laborum, voluptatum dicta ipsum.
+            {/* {data.content} */}
           </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias neque
-            fugiat itaque quas esse sunt cupiditate possimus cumque asperiores,
-            dolorem, dolores eligendi amet perferendis illum repellat nam quam
-            facilis veritatis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Sint ipsa fuga nihil numquam, quam dicta quas
-            exercitationem aliquam maxime quaerat, enim autem culpa sequi at!
-            Earum facere in ducimus culpa. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Libero fuga modi amet error aliquid
-            eos nobis vero soluta facilis, voluptatem, voluptates quod suscipit
-            obcaecati voluptate quaerat laborum, voluptatum dicta ipsum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias neque
-            fugiat itaque quas esse sunt cupiditate possimus cumque asperiores,
-            dolorem, dolores eligendi amet perferendis illum repellat nam quam
-            facilis veritatis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Sint ipsa fuga nihil numquam, quam dicta quas
-            exercitationem aliquam maxime quaerat, enim autem culpa sequi at!
-            Earum facere in ducimus culpa. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Libero fuga modi amet error aliquid
-            eos nobis vero soluta facilis, voluptatem, voluptates quod suscipit
-            obcaecati voluptate quaerat laborum, voluptatum dicta ipsum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias neque
-            fugiat itaque quas esse sunt cupiditate possimus cumque asperiores,
-            dolorem, dolores eligendi amet perferendis illum repellat nam quam
-            facilis veritatis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Sint ipsa fuga nihil numquam, quam dicta quas
-            exercitationem aliquam maxime quaerat, enim autem culpa sequi at!
-            Earum facere in ducimus culpa. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Libero fuga modi amet error aliquid
-            eos nobis vero soluta facilis, voluptatem, voluptates quod suscipit
-            obcaecati voluptate quaerat laborum, voluptatum dicta ipsum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias neque
-            fugiat itaque quas esse sunt cupiditate possimus cumque asperiores,
-            dolorem, dolores eligendi amet perferendis illum repellat nam quam
-            facilis veritatis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Sint ipsa fuga nihil numquam, quam dicta quas
-            exercitationem aliquam maxime quaerat, enim autem culpa sequi at!
-            Earum facere in ducimus culpa. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Libero fuga modi amet error aliquid
-            eos nobis vero soluta facilis, voluptatem, voluptates quod suscipit
-            obcaecati voluptate quaerat laborum, voluptatum dicta ipsum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias neque
-            fugiat itaque quas esse sunt cupiditate possimus cumque asperiores,
-            dolorem, dolores eligendi amet perferendis illum repellat nam quam
-            facilis veritatis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Sint ipsa fuga nihil numquam, quam dicta quas
-            exercitationem aliquam maxime quaerat, enim autem culpa sequi at!
-            Earum facere in ducimus culpa. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Libero fuga modi amet error aliquid
-            eos nobis vero soluta facilis, voluptatem, voluptates quod suscipit
-            obcaecati voluptate quaerat laborum, voluptatum dicta ipsum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias neque
-            fugiat itaque quas esse sunt cupiditate possimus cumque asperiores,
-            dolorem, dolores eligendi amet perferendis illum repellat nam quam
-            facilis veritatis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Sint ipsa fuga nihil numquam, quam dicta quas
-            exercitationem aliquam maxime quaerat, enim autem culpa sequi at!
-            Earum facere in ducimus culpa. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Libero fuga modi amet error aliquid
-            eos nobis vero soluta facilis, voluptatem, voluptates quod suscipit
-            obcaecati voluptate quaerat laborum, voluptatum dicta ipsum.
-          </p>
+          <div
+            className="content-display"
+            dangerouslySetInnerHTML={{ __html: data.content }}
+          ></div>
         </div>
         {/* menu */}
         <div className="px-4 h-max sticky top-8">
-          <h1 className="mb-4 text-sm font-medium">Author</h1>
+          <h1 className="mb-2 text-sm font-medium">الناشر</h1>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-8">
               {data.user.img && (
@@ -151,43 +74,45 @@ const SinglePostPage = () => {
               )}
               <Link className="text-blue-800">{data.user.username}</Link>
             </div>
-            <p className="text-sm text-gray-500">
-              Lorem ipsum dolor sit amet consectetur
-            </p>
+            {/* <p className="text-sm text-gray-500">
+              ssssssssss sit amet consectetur
+            </p> */}
             <div className="flex gap-2">
               <Link>
-                <Image src="facebook.svg" />
+                <Image src="facebook.png" w={30} h={30} />
               </Link>
               <Link>
-                <Image src="instagram.svg" />
+                <Image src="instagram.png" w={30} h={30} />
               </Link>
             </div>
           </div>
-          <PostMenuActions post={data}/>
-          <h1 className="mt-8 mb-4 text-sm font-medium">Categories</h1>
+          <PostMenuActions post={data} />
+          <h1 className="mt-8 mb-4 text-sm font-medium">الفئات</h1>
           <div className="flex flex-col gap-2 text-sm">
-            <Link className="underline">All</Link>
-            <Link className="underline" to="/">
-              Web Design
+            <Link className="underline" to="/posts">
+              كل المنشورات
             </Link>
-            <Link className="underline" to="/">
-              Development
+            <Link className="underline" to="/posts?cat=sport">
+              رياضة
             </Link>
-            <Link className="underline" to="/">
-              Databases
+            <Link className="underline" to="/posts?cat=culture">
+            ثقافة
             </Link>
-            <Link className="underline" to="/">
-              Search Engines
+            <Link className="underline" to="/posts?cat=social">
+            اجتماع
             </Link>
-            <Link className="underline" to="/">
-              Marketing
+            <Link className="underline" to="/posts?cat=environment">
+            بيئة
+            </Link>
+            <Link className="underline" to="/posts?cat=art">
+            فن
             </Link>
           </div>
-          <h1 className="mt-8 mb-4 text-sm font-medium">Search</h1>
+          <h1 className="mt-8 mb-4 text-sm font-medium">بحث</h1>
           <Search />
         </div>
       </div>
-      <Comments postId={data._id}/>
+      <Comments postId={data._id} />
     </div>
   );
 };
